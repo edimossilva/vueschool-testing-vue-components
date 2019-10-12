@@ -9,10 +9,12 @@ test('mount a vue component', () => {
       value: 'VueSchool2'
     }
   })
-  expect(wrapper.html()).toMatchSnapshot()
+  expect(wrapper).toMatchSnapshot()
 })
 
-test('ListComponent Shallow', () => {
-  console.log(mount(List).html())
-  console.log(shallowMount(List).html())
+test('ListComponent', () => {
+  const wrapper = mount(List);
+  const movies = wrapper.vm.marvelMovies;
+  wrapper.setData({marvelMovies: [...movies,'endgame']});
+  expect(wrapper).toMatchSnapshot();
 })
