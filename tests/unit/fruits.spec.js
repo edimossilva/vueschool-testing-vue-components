@@ -1,4 +1,4 @@
-import  FruitBasket from '../../src/fruit-basket'
+import  FruitBasket from '@/fruit-basket'
 import { mount } from '@vue/test-utils'
 
 
