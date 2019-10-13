@@ -14,6 +14,7 @@ it('fills fruit', () => {
 it('add fruit on button click', () => {
 
   const wrapper = mount(FruitBasket)
+  const addToBasketSpy = jest.spyOn(wrapper.vm,'addToBasket')
 
   const inputDOM = wrapper.find('input')
   inputDOM.element.value = "banana"
@@ -25,4 +26,6 @@ it('add fruit on button click', () => {
   expect(wrapper.vm.fruit).toEqual("")
   expect(wrapper.vm.basket).toEqual(expect.arrayContaining(['banana']))
   expect(wrapper.findAll('li').length).toBe(1)
+  expect(wrapper.vm.addToBasket).toBeCalled();
+
 });
